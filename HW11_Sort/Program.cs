@@ -1,10 +1,15 @@
-﻿using System;
-
-namespace HW15_Sort
+﻿namespace HW15_Sort
 {
+    /// <summary>
+    /// программа для сортировки массивов + их создание.
+    /// </summary>
     internal class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// юи, создание массива и запуск сортирови.
+        /// </summary>
+        /// <param name="args">Аргументы командной строки.</param>
+        public static void Main(string[] args)
         {
             Console.WriteLine("введите коллество элементов массива");
             int len = int.Parse(Console.ReadLine());
@@ -19,6 +24,7 @@ namespace HW15_Sort
                 {
                     array[i] = random.Next() % max;
                 }
+
                 if (len < 50)
                 {
                     Console.WriteLine("исходный массив:");
@@ -35,10 +41,11 @@ namespace HW15_Sort
                     array[i] = double.Parse(Console.ReadLine());
                 }
             }
+
             double[] sortedArr = { };
             try
             {
-                sortedArr = Sorting.MergeSort(array);
+                sortedArr = MergeSorting.MergeSort(array);
             }
             catch (AggregateException ex)
             {

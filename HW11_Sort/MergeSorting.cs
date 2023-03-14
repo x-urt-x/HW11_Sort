@@ -1,11 +1,15 @@
 ﻿namespace HW15_Sort
 {
-    internal class Sorting
+    /// <summary>
+    /// Класс, содержащий методы сортировки.
+    /// </summary>
+    internal class MergeSorting
     {
-        public class SortException : Exception
-        {
-            public SortException(string message) : base(message) { }
-        }
+        /// <summary>
+        /// Метод запускающий сортировку.
+        /// </summary>
+        /// /// <param name="array">массив для сортировки.</param>
+        /// /// <returns>отсортированный массив.</returns>
         public static double[] MergeSort(double[] array)
         {
             var cancellationTokenSource = new CancellationTokenSource();
@@ -14,6 +18,7 @@
             var task = Task.Run(() => Sort(array, token));
             return task.Result;
         }
+
         private static double[] Sort(double[] sortArr, CancellationToken token)
         {
             if (sortArr.Length == 0)
@@ -50,11 +55,13 @@
                     sortArr[i] = firstArr[firstArrItterator];
                     firstArrItterator++;
                 }
+
                 if (token.IsCancellationRequested)
                 {
                     throw new SortException("выполнение более 100мс");
                 }
             }
+
             for (; firstArrItterator < firstArr.Length; i++)
             {
                 sortArr[i] = firstArr[firstArrItterator];
@@ -64,6 +71,7 @@
                     throw new SortException("выполнение более 100мс");
                 }
             }
+
             for (; secondArrItterator < secondArr.Length; i++)
             {
                 sortArr[i] = secondArr[secondArrItterator];
@@ -73,7 +81,19 @@
                     throw new SortException("выполнение более 100мс");
                 }
             }
+
             return sortArr;
+        }
+
+        /// <summary>
+        /// класс для кастомной ошибки.
+        /// </summary>
+        public class SortException : Exception
+        {
+            public SortException(string message)
+                : base(message)
+            {
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace HW15_Sort
+﻿using MergeSortingNS;
+
+namespace HW15_Sort
 {
     /// <summary>
     /// программа для сортировки массивов + их создание.

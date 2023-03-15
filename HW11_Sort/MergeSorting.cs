@@ -1,9 +1,9 @@
-﻿namespace HW15_Sort
+﻿namespace MergeSortingNS
 {
     /// <summary>
     /// Класс, содержащий методы сортировки.
     /// </summary>
-    internal class MergeSorting
+    public class MergeSorting
     {
         /// <summary>
         /// Метод запускающий сортировку.
